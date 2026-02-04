@@ -13,7 +13,7 @@
             <svg-icon class="youguan" icon-class="youtube" style="float:right;margin-left:10px" @click="gotoYouTuBe" />
             <svg-icon class="channel" icon-class="telegram" style="float:right;margin-left: 10px"
               @click="gotoTgChannel" />
-            <div style="text-align:center;font-size:15px">订 阅 转 换</div>
+            <div style="text-align:center;font-size:15px">将其填入下方文本之后，并点击最下方生成</div>
           </div>
           <el-container>
             <el-form :model="form" label-width="80px" label-position="left" style="width: 100%">
@@ -338,6 +338,7 @@ export default {
           "suo.yt": "https://suo.yt/short",
         },
         customBackend: {
+          "自用后端": "https://subconverter.942040.xyz",
           "CM负载均衡后端【vless reality+hy1+hy2】": "https://subapi.cmliussss.net",
           "CM应急备用后端【vless reality+hy1+hy2】": "https://subapi.fxxk.dedyn.io",
           "肥羊增强型后端【vless reality+hy1+hy2】": "https://url.v1.mk",
@@ -350,6 +351,15 @@ export default {
           { value: "https://api.v1.mk" },
         ],
         remoteConfig: [
+          {
+            label: "我的规则",
+            options: [
+              {
+                label: "我的默认规则",
+                value: "https://raw.githubusercontent.com/llovely45/ACL4SSR/refs/heads/main/Clash/config/main.ini"
+              }
+            ]
+          },
           {
             label: "CM规则",
             options: [
@@ -778,11 +788,11 @@ export default {
         ]
       },
       form: {
-        sourceSubUrl: "",
-        clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://url.v1.mk" : this.getUrlParam(),
+        sourceSubUrl: "https://sub.942040.xyz/sub?uuid=083f0408-acea-4e24-a239-fef5d04c2cd3&security=tls&type=ws&headerType=&path=%2Fhttp%3DsM2yL6v7tc%3AaGk2l2l2rhb2%40172.245.20.168%3A11281%3Fed%3D2560&host=share.nlvip.ddns-ip.net&flow=&sni=share.nlvip.ddns-ip.net|",
+        clientType: "auto",
+        customBackend: this.getUrlParam() == "" ? "https://subconverter.942040.xyz" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
-        remoteConfig: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online.ini",
+        remoteConfig: "https://raw.githubusercontent.com/llovely45/ACL4SSR/refs/heads/main/Clash/config/main.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -1304,3 +1314,4 @@ export default {
   }
 };
 </script>
+
